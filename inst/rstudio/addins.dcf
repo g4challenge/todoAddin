@@ -1,0 +1,4 @@
+Name: Find Todos
+Description: Finds Todos of a project
+Binding: findTodosAddin
+Interactive: true
