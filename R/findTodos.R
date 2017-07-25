@@ -15,6 +15,6 @@ findTodos <- function(){
 readDplyr <- function(path){
   readLines(path) %>% as.data.frame() %>%
     tibble::rownames_to_column() %>% rename(text=".") %>%
-    filter(grepl(".* TODO .* ", text)) -> code # TODO better regex
+    filter(grepl("# ?\\bTODO\\b", text, ignore.case=T)) -> code # TODO better regex
   return(code)
 }
