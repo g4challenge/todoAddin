@@ -5,8 +5,11 @@
 #'
 #' @examples
 findTodos <- function(){
-  # Todo better pattern
-  filenames <- list.files(".", pattern="*.R", full.names=TRUE, recursive=T) %>%
+  DIR <- rstudioapi::getActiveProject()
+
+  rFiles <- list.files(path = DIR, pattern = "(?i)\\.r$", recursive = TRUE)
+  rmdFiles <- list.files(path = DIR, pattern = "(?i)\\.rmd$", recursive = TRUE)
+  filenames <- c(rFiles, rmdFiles) %>%
     as.data.frame(stringsAsFactors = F)
   colnames(filenames) <- c("path")
   ldf <- filenames %>% dplyr::rowwise() %>%
