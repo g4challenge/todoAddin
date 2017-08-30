@@ -23,7 +23,7 @@ findTodosAddin <- function(){
     observe({
       input$res_rows_selected
       if(!is.null(input$res_rows_selected)){
-        rstudioapi::navigateToFile(res$filename[input$res_rows_selected], line=res$rowname[input$res_rows_selected])
+        rstudioapi::navigateToFile(res$Filename[input$res_rows_selected], line=res$Line[input$res_rows_selected])
       }
     })
     observeEvent(input$done, {
