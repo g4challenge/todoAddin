@@ -11,7 +11,7 @@ findTodosAddin <- function(){
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("TODOS"),
     miniUI::miniContentPanel(
-      DT::dataTableOutput('res')
+      DT::dataTableOutput('res', height="100%")
     )
   )
 
