@@ -17,7 +17,7 @@ findTodosAddin <- function(){
 
   server <- function(input, output, session) {
     res <- findTodos()
-    print(res)
+    #print(res)
     output$res <- DT::renderDataTable(res, selection='single')
     print("rendered")
     observe({

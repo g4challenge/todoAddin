@@ -15,6 +15,7 @@ findTodos <- function(){
   ldf <- filenames %>% dplyr::rowwise() %>%
     dplyr::do(filename=.$path, code=readDplyr(.$path)) %>%
     tidyr::unnest(filename) %>% tidyr::unnest(code) %>% as.data.frame()
+  colnames(ldf) <- c("Filename", "Line", "Code")
   return(ldf)
 }
 
